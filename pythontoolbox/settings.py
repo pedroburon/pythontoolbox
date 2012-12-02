@@ -122,6 +122,7 @@ INSTALLED_APPS = (
     'compressor',
     'social_auth',
     'django_extensions',
+    'storages',
 
     'django.contrib.admin',
     'django.contrib.admindocs',
