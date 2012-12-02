@@ -4,15 +4,15 @@
 <ul>
   {% for group in group_list %}
   <li id="{{ group.slug }}">
-  <h2>{{ group.name }}</h2>
+  <h3>{{ group.name }}</h3>
   <ul>
     {% for category in group.categories.all %}
     <li>
-    <h3>
+    <h4>
       <a href="{{ category.get_absolute_url }}">
         {{ category.name }}
       </a>
-    </h3>
+    </h4>
     </li>
     {% endfor %}
   </ul>

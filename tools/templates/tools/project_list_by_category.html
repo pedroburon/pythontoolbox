@@ -4,10 +4,10 @@
 <h1>{{ category.name }} <small><a href="{% url tools:group_list %}#{{ category.group.slug }}">{{ category.group.name }}</a></small></h1>
 
 <ul>
-{% for project in project_list %}
+  {% for project in project_list %}
   <li>
-  {{ project.name }}
+  <h3><a href="{{ project.website }}">{{ project.name }}</a></h3>
   </li>
-{% endfor %}
+  {% endfor %}
 </ul>
 {% endblock content %}

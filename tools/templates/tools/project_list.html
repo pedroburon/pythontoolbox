@@ -13,7 +13,7 @@
 <h2>{{ first_letter|capfirst }}</h2>
 <ul>
   {% for project in project_list %}
-  <li><a href="{{ project.get_absolute_url }}">{{ project.name }}</a></li>
+  <li><h3><a href="{{ project.get_absolute_url }}">{{ project.name }}</a></h3></li>
   {% endfor %}
 </ul>
 {% endblock content %}
