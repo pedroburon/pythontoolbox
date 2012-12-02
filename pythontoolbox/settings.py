@@ -13,7 +13,7 @@ DEBUG = os.getenv('DEBUG', 'True') == 'True'
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    (u'Pedro Burón', 'pedro@witoi.com'),
+    (os.getenv('ADMIN_NAME'), os.getenv('ADMIN_EMAIL')),
 )
 
 MANAGERS = ADMINS
