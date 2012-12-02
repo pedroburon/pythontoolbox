@@ -5,9 +5,11 @@ boto==2.6.0
 distribute==0.6.24
 dj-database-url==0.2.1
 django-appconf==0.5
+django-bootstrap-form==2.0.5
 django-compressor==1.2
 django-debug-toolbar==0.9.4
 django-extensions==1.0.1
+django-guardian==1.0.4
 django-social-auth==0.7.10
 django-storages==1.1.5
 docutils==0.9.1
