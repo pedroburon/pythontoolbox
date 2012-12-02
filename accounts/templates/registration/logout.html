@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+  <div class="alert">
+    <h3>{% trans 'You have logged out.' %}</h3>
+    <p>{% trans 'Have a nice day.' %}</p>
+    <p>
+      <a href="{% url auth_login %}" class="btn btn-primary">
+        {% trans 'Login again' %}
+      </a>
+    </p>
+  </div>
+{% endblock content %}

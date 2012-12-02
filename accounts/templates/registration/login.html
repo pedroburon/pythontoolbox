@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load trans from i18n %}
+{% load bootstrap from bootstrap %}
+
+{% block content %}
+<form method="post" class="form-horizontal" action="{% url accounts:auth_login %}">{% csrf_token %}
+  <fieldset>
+    <legend>{% trans 'Welcome' %}</legend>
+    {{ form|bootstrap }}
+    <div class="form-actions">
+      <input type="submit" class="btn btn-primary" value="{% trans 'Login' %}" />
+      <input type="hidden" name="next" value="{{ next }}" />
+    </div>
+  </fieldset>
+</form>
+{% endblock %}

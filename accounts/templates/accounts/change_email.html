@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+{% load i18n %}
+
+{% block content %}
+  <form method="post" action="{% url accounts_change_email %}" id="change-email-form">{% csrf_token %}
+    <fieldset>
+      <legend>{% trans 'Modify your email' %}</legend>
+      {{ form|bootstrap }}
+      <div class="form-actions">
+        <a href="{% url accounts_profile_update %}" class="btn btn-secondary">{% trans 'Back to your profile' %}</a>
+        <button type="submit" class="btn btn-primary">{% trans 'Submit' %}</button>
+      </div>
+  </form>
+{% endblock content %}

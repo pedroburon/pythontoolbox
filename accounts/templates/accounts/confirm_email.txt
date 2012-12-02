@@ -1,0 +1,8 @@
+{% spaceless %}
+{% load i18n %}
+{% blocktrans %}
+In order to confirm your E-mail, please go to:
+{% endblocktrans %}
+{% endspaceless %}
+
+{{ site }}{% url accounts_change_email_confirm token=token %}

@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% load trans from i18n %}
+
+{% block content %}
+  <h1>{{ profile.user.get_full_name }} <small>{{ profile.user.username }}</small></h1>
+{% endblock content %}

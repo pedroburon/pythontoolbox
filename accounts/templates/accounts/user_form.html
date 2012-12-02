@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load trans from i18n %}
+{% load bootstrap from bootstrap %}
+
+{% block content %}
+  <h1>{{ profile.user.get_full_name }} <small>{{ profile.user.username }}</small></h1>
+  <form class="form-horizontal" method="post">{% csrf_token %}
+    <fieldset>
+      <legend>{% trans 'Update your details' %}</legend>
+      {{ form|bootstrap }}
+    </fieldset>
+    <div class="form-actions">
+      <button type="reset"
+              class="btn btn-secondary btn-large">{% trans 'Reset' %}</button>
+      <button type="submit"
+              class="btn btn-primary btn-large">{% trans 'Submit' %}</button>
+    </div>
+  </form>
+{% endblock content %}

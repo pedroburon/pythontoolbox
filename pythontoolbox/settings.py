@@ -118,11 +118,14 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     'pythontoolbox',
+    'accounts',
 
     'compressor',
     'social_auth',
     'django_extensions',
     'storages',
+    'guardian',
+    'bootstrapform',
 
     'django.contrib.admin',
     'django.contrib.admindocs',
@@ -215,6 +218,7 @@ AUTHENTICATION_BACKENDS = (
 )
 GITHUB_APP_ID = os.getenv('GITHUB_APP_ID')
 GITHUB_API_SECRET = os.getenv('GITHUB_API_SECRET')
+GITHUB_EXTRA_DATA = ('user', 'public_repo')
 
 # Debug Toolbar
 if DEBUG:
@@ -222,3 +226,6 @@ if DEBUG:
     INTERNAL_IPS = ('127.0.0.1',)
     INSTALLED_APPS += ('debug_toolbar',)
 
+# Django-guardian
+AUTHENTICATION_BACKENDS += ('guardian.backends.ObjectPermissionBackend',)
+ANONYMOUS_USER_ID = -1

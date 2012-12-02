@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load trans blocktrans from i18n %}
+
+{% block content %}
+  <div class="alert alert-error">
+    <h3>{% trans 'The registration is closed.' %}</h3>
+    <p>
+      {% url auth_login as url_auth_login %}
+      {% blocktrans %}
+        Are you already registered?, please <a href="{{ url_auth_login }}">login</a>.
+      {% endblocktrans %}
+    </p>
+  </div>
+{% endblock content %}
