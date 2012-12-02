@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="pagination">
+  <ul>
+    {% for letter in 'abcdefghigklmnopqrstuvwxyz' %}
+    <li {% if letter == first_letter %}class="active"{% endif %}><a href="{% url tools:project_list letter=letter %}">{{ letter }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+
+<h2>{{ first_letter|capfirst }}</h2>
+<ul>
+  {% for project in project_list %}
+  <li><a href="{{ project.get_absolute_url }}">{{ project.name }}</a></li>
+  {% endfor %}
+</ul>
+{% endblock content %}

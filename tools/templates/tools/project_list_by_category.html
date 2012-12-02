@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ category.name }} <small><a href="{% url tools:group_list %}#{{ category.group.slug }}">{{ category.group.name }}</a></small></h1>
+
+<ul>
+{% for project in project_list %}
+  <li>
+  {{ project.name }}
+  </li>
+{% endfor %}
+</ul>
+{% endblock content %}

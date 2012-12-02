@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% regroup category_list by first_letter as letter_list %}
+
+<ul>
+  {% for letter in letter_list %}
+  <li>
+  <h2 id="{{ letter.grouper }}">{{ letter.grouper }}</h2>
+  <ul>
+    {% for category in letter.list %}
+    <li>
+    <h3>
+      <a href="{{ category.get_absolute_url }}">
+        {{ category.name }}
+      </a>
+      <small>
+        <a href="{% url tools:group_list %}#{{ category.group.slug }}">
+          {{ category.group.name }}
+        </a>
+      </small>
+    </h3>
+    </li>
+    {% endfor %}
+  </ul>
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock content %}

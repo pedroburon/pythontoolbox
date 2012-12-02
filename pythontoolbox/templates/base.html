@@ -40,12 +40,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="{% url home %}">Python Toolbox</a>
+          <a class="brand" href="{% url tools:home %}">Python Toolbox</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li data-section="home"><a href="{% url home %}">{% trans 'Home' %}</a></li>
-              <li data-section="categories"><a href="#categories">{% trans 'Categories' %}</a></li>
-              <li data-section="projects"><a href="#projects">{% trans 'Projects' %}</a></li>
+              <li data-section="home"><a href="{% url tools:home %}">{% trans 'Home' %}</a></li>
+              <li data-section="categories"><a href="{% url tools:category_list %}">{% trans 'Categories' %}</a></li>
+              <li data-section="projects"><a href="{% url tools:project_list letter='a' %}">{% trans 'Projects' %}</a></li>
             </ul>
             <ul class="nav pull-right" id="signin-box" data-current-user="{% url accounts:current %}">
               <li data-section="registration">
@@ -59,10 +59,27 @@
         </div>
       </div>
     </div>
+    
+    <div class="header">
+      <div class="container">
+        {% block header %}
+        <h1>The Python Toolbox Project</h1>
+        <h3>Comprehensive List of Python Packages</h3>
+        {% endblock header %}
+      </div>
+    </div>
 
     <div class="container">
-      {% block content %}
-      {% endblock content %}
+      <div class="row">
+        <div class="span9">
+          {% block content %}
+          {% endblock content %}
+        </div>
+        <div class="span3">
+          {% block sidebar %}
+          {% endblock sidebar %}
+        </div>
+      </div>
     </div> <!-- /container -->
 
 
@@ -104,7 +121,7 @@
     {% endcompress %}
     <script type="text/x-tmpl" id="signin-logged-template">
       <li data-section="profile">
-        <a href="{% url accounts:update %}">
+        <a href="{% url accounts:update %}" title="[%= o.user.fullname %]" rel="tooltip">
           <i class="icon-user"></i>
           [%= o.user.username %]
         </a>

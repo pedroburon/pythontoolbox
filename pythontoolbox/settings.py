@@ -119,6 +119,7 @@ INSTALLED_APPS = (
 
     'pythontoolbox',
     'accounts',
+    'tools',
 
     'compressor',
     'social_auth',
@@ -194,6 +195,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.tz",
     "django.contrib.messages.context_processors.messages",
 )
+
+AUTH_PROFILE_MODULE = 'accounts.Profile'
 
 # Compressor configuration
 COMPRESS_PRECOMPILERS = (
