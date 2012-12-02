@@ -4,7 +4,7 @@
 
 <div class="pagination">
   <ul>
-    {% for letter in 'abcdefghigklmnopqrstuvwxyz' %}
+    {% for letter in 'abcdefghijklmnopqrstuvwxyz' %}
     <li {% if letter == first_letter %}class="active"{% endif %}><a href="{% url tools:project_list letter=letter %}">{{ letter }}</a></li>
     {% endfor %}
   </ul>
