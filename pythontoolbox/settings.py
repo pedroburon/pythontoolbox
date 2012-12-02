@@ -213,6 +213,8 @@ AUTHENTICATION_BACKENDS = (
     'social_auth.backends.contrib.github.GithubBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
+GITHUB_APP_ID = os.getenv('GITHUB_APP_ID')
+GITHUB_API_SECRET = os.getenv('GITHUB_API_SECRET')
 
 # Debug Toolbar
 if DEBUG:
