@@ -7,9 +7,7 @@ from django.views.generic import TemplateView
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
     url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
-    # url(r'^pythontoolbox/', include('pythontoolbox.foo.urls')),
 
     url(r'', include('social_auth.urls')),
 
