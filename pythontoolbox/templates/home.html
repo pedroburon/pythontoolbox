@@ -1,0 +1,117 @@
+{% load trans from i18n %}
+{% load compress from compress %}
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}Python Toolbox{% endblock title %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    {% compress css %}
+    <link href="{% static 'less/bootstrap.less' %}" rel="stylesheet" type="text/less">
+    {% endcompress %}
+    {% block custom_css %}
+    {% endblock custom_css %}
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="{% static 'ico/favicon.ico' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'ico/apple-touch-icon-144-precomposed.png' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'ico/apple-touch-icon-114-precomposed.png' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'ico/apple-touch-icon-72-precomposed.png' %}">
+    <link rel="apple-touch-icon-precomposed" href="{% static 'ico/apple-touch-icon-57-precomposed.png' %}">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="{% url home %}">Python Toolbox</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li data-section="home"><a href="{% url home %}">{% trans 'Home' %}</a></li>
+              <li data-section="categories"><a href="#categories">{% trans 'Categories' %}</a></li>
+              <li data-section="projects"><a href="#projects">{% trans 'Projects' %}</a></li>
+            </ul>
+            <ul class="nav pull-right" id="signin-box">
+              <li data-section="registration">
+               <a href="{% url socialauth_begin backend='github' %}" title="{% trans 'Sign in using your github account' %}" rel="tooltip" data-placement="bottom">
+                  <i class="icon-github"></i>
+                  {% trans 'sign in' %}
+                </a>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <h1>Bootstrap starter template</h1>
+      <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+
+    </div> <!-- /container -->
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{% static 'js/jquery-1.8.1.min.js' %}"><\/script>')</script>
+    {% compress js %}
+    <script type="text/javascript" src="{% static 'js/bootstrap-transition.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap-alert.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap-modal.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap-dropdown.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap-scrollspy.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap-tab.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap-tooltip.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap-popover.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap-button.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap-collapse.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap-carousel.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap-typeahead.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap-affix.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/tmpl.js' %}"></script>
+    <script type="text/javascript">
+      tmpl.regexp = /([\s'\\])(?![^%]*%\])|(?:\[%(=|#)([\s\S]+?)%\])|(\[%)|(%\])/g;
+    </script>
+    <script type="text/javascript">
+      jQuery(function($) {
+        $('[rel=tooltip]').tooltip()
+      })
+    </script>
+    {% endcompress %}
+    <script type="text/x-tmpl" id="signin-logged-template">
+      <li data-section="login">
+        <a href="#profile">
+          <i class="icon-user"></i>
+          [%= o.user.full_name %]
+        </a>
+      </li>
+      <li data-section="logout">
+        <a href="#logout">
+          {% trans 'logout' %}
+          <i class="icon-share-alt"></i>
+        </a>
+      </li>
+    </script>
+    {% block custom_js %}
+    {% endblock custom_js %}
+  </body>
+</html>
