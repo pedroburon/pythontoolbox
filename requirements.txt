@@ -13,6 +13,8 @@ django-guardian==1.0.4
 django-social-auth==0.7.10
 django-storages==1.1.5
 docutils==0.9.1
+gevent==0.13.8
+greenlet==0.4.0
 gunicorn==0.16.1
 honcho==0.1.0
 httplib2==0.7.7
