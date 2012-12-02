@@ -94,7 +94,8 @@
         var $signin_box = $('#signin-box')
           , current_user_url = $signin_box.data('current-user')
         $.getJSON(current_user_url, function(json) {
-          $signin_box.html(tmpl('signin-logged-template', json))
+          if(json.user != null)
+            $signin_box.html(tmpl('signin-logged-template', json))
         })
 
         $('[rel=tooltip]').tooltip()
