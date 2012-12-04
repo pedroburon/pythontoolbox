@@ -43,6 +43,13 @@ class CurrentUserView(View):
         user = request.user
         user_data = None
         if user.is_authenticated():
-            user_data = {'username': user.username, 'fullname': user.get_full_name()}
+            profile = user.get_profile()
+            user_data = {
+                'username': user.username,
+                'fullname': user.get_full_name(),
+                'picture': profile.get_gravatar_url(),
+                'absolute_url': profile.get_absolute_url(),
+                'update_url': profile.get_update_url(),
+            }
         context = {'user': user_data}
         return HttpResponse(content=simplejson.dumps(context), content_type='application/json')

@@ -1,5 +1,6 @@
+import hashlib
+
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
@@ -19,6 +20,12 @@ class Profile(models.Model):
     @models.permalink
     def get_update_url(self):
         return 'accounts:update', (), {}
+
+    def get_gravatar_url(self):
+        return "https://www.gravatar.com/avatar/" + hashlib.md5(self.user.email.lower()).hexdigest()
+
+    def __unicode__(self):
+        return self.user.username
 
 
 @receiver(post_save, sender=User, dispatch_uid='create_profile_on_user_create')

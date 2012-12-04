@@ -26,7 +26,7 @@ class ProjectListView(ListView):
 
     def get_queryset(self):
         queryset = super(ProjectListView, self).get_queryset()
-        return queryset.filter(name__startswith=self.first_letter)
+        return queryset.filter(name__istartswith=self.first_letter)
 
 
 class ProjectListByCategoryView(ListView):
