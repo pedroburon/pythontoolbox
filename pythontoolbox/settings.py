@@ -9,7 +9,7 @@ from django.core.urlresolvers import reverse_lazy
 
 PROJECT_PATH = os.path.dirname(os.path.dirname(__file__))
 
-DEBUG = os.getenv('DEBUG', 'True') == 'True'
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -176,7 +176,7 @@ LOGGING = {
         },
         'django.db.backends': {
             'handlers': ['console'],
-            'level': 'DEBUG' if os.getenv('SQL_LOGGING', 'True') == 'True' else 'ERROR',
+            'level': 'DEBUG' if os.getenv('SQL_LOGGING', 'False') == 'True' else 'ERROR',
             'propagate': True,
         }
     }
